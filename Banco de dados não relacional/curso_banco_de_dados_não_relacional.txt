@@ -1,0 +1,33 @@
+-- Mostra os banco de dados criados
+show databases
+
+-- Seleciona um banco de dados
+use dankicode
+
+-- Cria no banco de dados Coleção2
+db.createCollection('Coleção2');
+
+-- Mostra as coleções, é como se fosse uma tabela
+show collections;
+
+-- Insere documentos, igual a um novo registro no banco de dados relacional
+db.Posts.insertOne({nome: 'Guilherme',conteudo:'Minha noticia de exemplo'})
+
+-- Faz um pesquisa dentro do banco de dados nesse caso mostra todos os dados no banco de dados
+db.Posts.find()
+
+-- Aqui foi inserido um comentario e um array de números
+db.posts.insertOne({comentarios:[2,3,4,6]})
+
+-- Modifica um registro já feito na tabela
+db.Posts.updateOne({nome: "Guilherme"},{$set:{nome:"Gustavo"}})
+
+-- Pesquisa nos registros o nome Gustavo
+db.Posts.findo({nome:"Gustavo"})
+
+-- Deletando documentos ou registros no banco de dados, nesse caso somente um registro
+db.Posts.deleteOne({nome:"Gustavo"})
+
+-- Insere mais de um registro
+db.Posts.insertMany([{noticia:"Minha noticia", autores:['Gui','Joao'],comentarios:[{nome'Felipe',comentario:'Meu comnetario de exemplo'},
+{nome:'Lucas',comentario'Aqui é o comentário do Lucas'}]}])
